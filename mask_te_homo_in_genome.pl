@@ -30,7 +30,7 @@ my %te = Seq::seq_hash($opt{t});
 
 # using blast2seq to identify the te homolog
 open LIS, ">$opt{o}.list" or die $!;
-open BLA, "blastn -query $opt{t} -subject $opt{g} -outfmt 6 |" or die $!;
+open BLA, "blastn -query $opt{t} -subject $opt{g} -word_size 14 -outfmt 6 |" or die $!;
 while(<BLA>){
 	chomp;
 	my ($te,$chr,$s,$e) = (split /\t/,$_)[0,1,8,9];
